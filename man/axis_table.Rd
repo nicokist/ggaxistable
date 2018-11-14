@@ -34,7 +34,3 @@ to the plot if you're adding a table to y axis or
 for the x axis.
 This will ensure your table is oriented correctly and that a fixed-width font is used.
 }
-\examples{
-example to go here
-
-}

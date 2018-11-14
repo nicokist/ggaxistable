@@ -84,9 +84,6 @@ table_labeller <- function(.data, axis_col, selected_cols = colnames(.data), col
 #' @return A specially-formed scale_discrete function containing the table to be added to the plot.
 #' @export
 #'
-#' @examples
-#' see github page f
-#'
 
 
 axis_table <- function(.data, x = NULL, y = NULL, selected_cols = colnames(.data), col_widths = NULL) {

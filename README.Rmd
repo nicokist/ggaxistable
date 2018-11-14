@@ -1,0 +1,85 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# ggaxistable
+
+ggaxistable allows for a table to be added on either axis of a ggplot figure. Such tables are commonly used in forest plots and in other places.
+
+## Installation
+
+You can install the released version of ggaxistable from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+library(devtools)
+devtools::install_github("nicokist/ggaxistable")
+```
+
+## Example
+
+First we create some data.
+```{r messages=FALSE, warning=FALSE, }
+suppressPackageStartupMessages(library(dplyr))
+library(forcats)
+library(ggplot2)
+library(ggaxistable)
+
+ORs <- tibble(
+  Name = as.factor(paste("Group", LETTERS[1:26])),
+  `Odds Ratio` = 10^rnorm(n = 26, sd = 0.1),
+  Upper = 10^(log10(`Odds Ratio`) + runif(26, min = 0.1)),
+  Lower = 10^(log10(`Odds Ratio`) - runif(26, min = 0.1))) %>%
+  mutate_if(is.numeric, round, digits = 2) %>%
+  mutate(Name = fct_rev(Name))
+
+
+```
+
+Then we plot this and add a table on the y axis. Note the use of `axis_table` to create the table and `theme(axis.text.y = element_text(hjust = 0, family = "mono", color = "black"))` to ensure a fixed-width font is used.
+
+```{r forestplot_y_axis, dpi=300}
+ggplot(ORs) +
+  aes(y = Name, yend = Name) +
+  geom_point(aes(x = `Odds Ratio`)) +
+  geom_segment(aes(x = Lower, xend = Upper)) +
+  geom_vline(xintercept = 1, linetype = "dashed") +
+  scale_x_log10() +
+  axis_table(ORs, y = "Name", selected_cols = c("Name", "Odds Ratio")) +
+  xlab("Odds Ratio") +
+  ylab("") +
+  theme_classic() +
+  theme(
+    axis.text.y = element_text(hjust = 0, family = "mono", color = "black"),
+    axis.ticks.y = element_blank()
+  )
+```
+
+If desired, the table can also be added on the x axis.
+
+```{r forestplot_x_axis, dpi=300}
+ggplot(ORs) +
+  aes(x = Name, xend = Name) +
+  geom_point(aes(y = `Odds Ratio`)) +
+  geom_segment(aes(y = Lower, yend = Upper)) +
+  geom_hline(yintercept = 1, linetype = "dashed") +
+  scale_y_log10() +
+  axis_table(ORs, x = "Name", selected_cols = c("Name", "Odds Ratio")) +
+  xlab("") +
+  ylab("Odds Ratio") +
+  theme_classic() +
+  theme(
+    axis.text.x = element_text(hjust = 0, family = "mono", color = "black", angle = -90),
+    axis.ticks.x = element_blank()
+  )
+```
+

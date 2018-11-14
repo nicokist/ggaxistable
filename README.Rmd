@@ -18,7 +18,7 @@ ggaxistable allows for a table to be added on either axis of a ggplot figure. Su
 
 ## Installation
 
-You can install the released version of ggaxistable from [CRAN](https://CRAN.R-project.org) with:
+You can install ggaxistable as follows:
 
 ``` r
 library(devtools)

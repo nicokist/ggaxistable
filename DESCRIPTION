@@ -1,10 +1,10 @@
 Package: ggaxistable
-Title: Creates a Table On an Axis of a Plot (Commonly Used with Forest Plots)
+Title: Adds a table to the axis of a ggplot
 Version: 0.0.0.9000
 Authors@R: person("Nico", "Kist", email = "nico@kist.nl", role = c("aut", "cre"))
 Description: Adds a table on the x or y axis of a plot; these are commonly used to present odds ratios in forest plots and elsewhere.
 Depends: R (>= 3.0.0)
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -13,5 +13,6 @@ Imports:
     stringr,
     dplyr
 Suggests: 
-    testthat
-RoxygenNote: 6.1.0
+    testthat,
+    forcats
+RoxygenNote: 7.1.1

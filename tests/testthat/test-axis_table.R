@@ -1,8 +1,6 @@
-suppressWarnings(library(devtools))
-suppressWarnings(library(readr))
 suppressWarnings(library(dplyr))
 suppressWarnings(library(forcats))
-
+suppressWarnings(library(ggplot2))
 
 context("test-axis_table")
 

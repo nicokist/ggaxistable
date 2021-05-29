@@ -4,8 +4,13 @@
 \alias{axis_table}
 \title{Adds a table to a ggplot axis.}
 \usage{
-axis_table(.data, x = NULL, y = NULL,
-  selected_cols = colnames(.data), col_widths = NULL)
+axis_table(
+  .data,
+  x = NULL,
+  y = NULL,
+  selected_cols = colnames(.data),
+  col_widths = NULL
+)
 }
 \arguments{
 \item{.data}{Data containing both the y aesthetic of the original data, as well as the columns which should be included in the table.}

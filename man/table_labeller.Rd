@@ -4,8 +4,12 @@
 \alias{table_labeller}
 \title{Creates a table formatted as a ggplot labeller object.}
 \usage{
-table_labeller(.data, axis_col, selected_cols = colnames(.data),
-  col_widths = NULL)
+table_labeller(
+  .data,
+  axis_col,
+  selected_cols = colnames(.data),
+  col_widths = NULL
+)
 }
 \arguments{
 \item{.data}{Data containing both the x/y aesthetic of the original data, as well as the columns which should be included in the table.}

@@ -1,8 +1,9 @@
 Package: ggaxistable
-Title: Adds a table to the axis of a ggplot
-Version: 0.0.0.9000
+Title: Adds a Table to the Axis of a GGplot
+Version: 0.0.1
 Authors@R: person("Nico", "Kist", email = "nico@kist.nl", role = c("aut", "cre"))
 Description: Adds a table on the x or y axis of a plot; these are commonly used to present odds ratios in forest plots and elsewhere.
+URL: https://github.com/nicokist/ggaxistable
 Depends: R (>= 3.0.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
